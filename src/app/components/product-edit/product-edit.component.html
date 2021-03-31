@@ -1,0 +1,27 @@
+<div>
+    <h2>Product Edit</h2>
+    <div>
+        <label>Product Description:
+            <input [(ngModel)]="productData.ProductDescription" placeholder="Product Description"/>
+          </label><br>
+          <label>Product Description original:
+            <input [(ngModel)]="productData.ProductDescriptionOriginal" placeholder="Product Description original"/>
+          </label><br>
+          <label>Product Code:
+            <input [(ngModel)]="productData.ProductCode" placeholder="Product Code"/>
+          </label><br>
+          <label>Product Category:
+            <input [(ngModel)]="productData.ProductCategory" placeholder="Product Description original"/>
+          </label><br>
+          <label>Product Status:
+            <input [(ngModel)]="productData.ProductStatus" placeholder="Product Product Status"/>
+          </label><br>
+          <label>Product Barcode:
+            <input [(ngModel)]="productData.ProductBarcode" placeholder="Product Barcode"/>
+          </label><br>
+          <label>Row check sum:
+            <input [(ngModel)]="productData.Rowchecksum" placeholder="Row check sum"/>
+          </label><br>
+    </div>
+    <button (click)="updateProduct()">Update</button>
+  </div>

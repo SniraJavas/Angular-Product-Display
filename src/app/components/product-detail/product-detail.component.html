@@ -1,0 +1,11 @@
+<div *ngIf="product" class="m-5 content-style">
+    <h2>{{product.ProductDescription | uppercase}} Details</h2>
+    <div><span>Description: </span>{{product.ProductDescriptionOriginal}}</div>
+    <div><span>Row check sum: </span>{{product.Rowchecksum}}</div>
+    <div><span>Code: </span>{{product.ProductCode}}</div>
+    <div>
+      <button routerLink="/product-edit/{{product._id}}">
+        Edit
+      </button>
+    </div>
+  </div>

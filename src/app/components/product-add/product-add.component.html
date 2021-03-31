@@ -1,0 +1,21 @@
+<div class="m-5 content-style" >
+    <h2>Product Add</h2>
+    <div>
+      <form>
+        <div class="form-group">
+          <div>
+            <input id="pd" class="form-control" placeholder="Product Description"   [(ngModel)]="productData.productDescription" [ngModelOptions]="{standalone: true}"><br>
+            <input id="pdo" class="form-control" placeholder="Product Description original" [(ngModel)]="productData.productDescriptionOriginal" name="pdo" ><br>
+            <input id="pc" class="form-control" placeholder="Product Code"     [(ngModel)]="productData.productCode"            name="pc" ><br>
+            <input id="pds" class="form-control" placeholder="Product Status"   [(ngModel)]="productData.productStatus"    name="pct" ><br>
+            <input id="pct" class="form-control" placeholder="Product Category"   [(ngModel)]="productData.productCategory"    name="pds" ><br>
+            <input id="pb" class="form-control" placeholder="Product Barcode"   [(ngModel)]="productData.productBarcode"     name="pb" ><br>
+            <input id="rcm" class="form-control" placeholder="Row check sum"  [(ngModel)]="productData.rowchecksum" name="rcm" #rcm=""><br>
+           
+           
+          </div>
+        </div>
+      </form>
+    </div>
+    <button routerLink="/productlist" (click)="addProduct()">Create</button>
+  </div>

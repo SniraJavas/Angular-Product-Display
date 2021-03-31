@@ -1,0 +1,48 @@
+<h2>Product List</h2>
+
+<div>
+  <button class="create-product" (click)="add()">
+    New Product 
+  </button>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{modalTittle}}  </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <div *ngIf="isEditable"> 
+        <input id="pd" class="form-control" placeholder="Product Description"   [(ngModel)]="productData.productDescription" [ngModelOptions]="{standalone: true}"><br>
+        <input id="pdo" class="form-control" placeholder="Product Description original" [(ngModel)]="productData.productDescriptionOriginal" name="pdo" ><br>
+        <input id="pc" class="form-control" placeholder="Product Code"     [(ngModel)]="productData.productCode"            name="pc" ><br>
+        <input id="pds" class="form-control" placeholder="Product Status"   [(ngModel)]="productData.productStatus"    name="pct" ><br>
+        <input id="pct" class="form-control" placeholder="Product Category"   [(ngModel)]="productData.productCategory"    name="pds" ><br>
+        <input id="pb" class="form-control" placeholder="Product Barcode"   [(ngModel)]="productData.productBarcode"     name="pb" ><br>
+        <input id="rcm" class="form-control" placeholder="Row check sum"  [(ngModel)]="productData.rowchecksum" name="rcm" #rcm=""><br>
+      </div>
+      <div *ngIf="!isEditable"> 
+        <input id="pd" class="form-control" placeholder="Product Description"   [(ngModel)]="productData.productDescription" [ngModelOptions]="{standalone: true}" readonly><br>
+        <input id="pdo" class="form-control" placeholder="Product Description original" [(ngModel)]="productData.productDescriptionOriginal" name="pdo" readonly ><br>
+        <input id="pc" class="form-control" placeholder="Product Code"     [(ngModel)]="productData.productCode"            name="pc" readonly ><br>
+        <input id="pds" class="form-control" placeholder="Product Status"   [(ngModel)]="productData.productStatus"    name="pct" readonly><br>
+        <input id="pct" class="form-control" placeholder="Product Category"   [(ngModel)]="productData.productCategory"    name="pds" readonly ><br>
+        <input id="pb" class="form-control" placeholder="Product Barcode"   [(ngModel)]="productData.productBarcode"     name="pb" readonly ><br>
+        <input id="rcm" class="form-control" placeholder="Row check sum"  [(ngModel)]="productData.rowchecksum" name="rcm" #rcm="" readonly><br>
+      </div>
+    </div>
+  </form>
+</div>
+<div  class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Continue click')">Continue</button>
+</div>
+</ng-template>
+<div class="products">
+  <ul  *ngFor="let p of products;index as i;" class="product-fields">
+    <li><p >{{i+1}} {{p.productDescription}}</p></li>
+    <li><a (click)="openView(content,p)">View</a><a  (click)="openEdit(content,p)" >Edit</a><a (click)="openDelete(content,p)">Delete</a></li>
+  </ul>
+</div>
